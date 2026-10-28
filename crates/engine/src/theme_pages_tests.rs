@@ -55,6 +55,7 @@ fn new_files_take_the_theme_they_are_made_in_and_added_pages_follow() {
     }
 }
 
+/// New board pages start with the active theme's page background, or the light default headlessly.
 #[test]
 fn new_boards_take_the_theme_they_are_made_in() {
     for (dark, want) in [(None, "#F5F5F5"), (Some(false), "#F5F5F5"), (Some(true), "#1E1E1E")] {

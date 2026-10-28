@@ -58,6 +58,7 @@ fn new_file(s: &mut Session, p: &Value, kind: FileKind) -> Result<Value> {
     Ok(json!({"index": s.active, "kind": kind.id()}))
 }
 
+/// List commands for creating, opening, saving, importing, and exporting files.
 pub fn specs() -> Vec<CommandSpec> {
     vec![
         spec!("file.new", "New design file", "{name?}", false, |s, p| new_file(s, p, FileKind::Design)),

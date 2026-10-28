@@ -43,6 +43,7 @@ pub(crate) fn near(a: Point, b: Point) -> bool {
     (a - b).hypot() < 1e-6
 }
 
+/// Board files retain their kind through serialization while legacy design files omit it.
 #[test]
 fn a_board_is_a_kind_of_file_that_saves_and_reopens() {
     let s = board();

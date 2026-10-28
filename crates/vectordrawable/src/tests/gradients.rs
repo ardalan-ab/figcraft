@@ -61,6 +61,7 @@ fn layer_xfs() -> Vec<Affine> {
     ]
 }
 
+/// Exported gradients sample the same colors as FigCraft across transforms and gradient kinds.
 #[test]
 fn every_gradient_samples_where_figcraft_samples_it() {
     let (w, h) = (100.0, 80.0);
@@ -91,6 +92,7 @@ fn every_gradient_samples_where_figcraft_samples_it() {
     }
 }
 
+/// Written vector drawable gradients match pixels rendered from the source gradients.
 #[test]
 fn the_written_gradient_matches_the_rendered_pixels() {
     for kind in [GradientKind::Linear, GradientKind::Radial, GradientKind::Angular] {
@@ -139,6 +141,7 @@ fn svd_puts_the_matrix_back_together() {
     }
 }
 
+/// Rotating gradient stops by a turn preserves their sampled colors, including wrapped turns.
 #[test]
 fn turned_stops_keep_every_colour_where_it_was() {
     let stops = vec![(0.0, hex("FF0000")), (0.25, hex("00FF00")), (0.7, hex("0000FF")), (1.0, hex("FFFF00"))];
