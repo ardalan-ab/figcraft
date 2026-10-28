@@ -1,9 +1,7 @@
 //! Boards: the file kind, sticky notes, shapes with text, connectors that follow what they join
 //! (locally, through undo and in live sessions), stamps, ink and the eraser, and refusals.
 
-use figcraft_doc::{
-    BOARD_PAGE, BoardItem, BoardShape, Connector, End, FileKind, Node, NodeId, NodeKind, Routing, Side, Stamp, StrokeCap, board_color,
-};
+use figcraft_doc::{BoardItem, BoardShape, Connector, End, FileKind, Node, NodeId, NodeKind, Routing, Side, Stamp, StrokeCap, board_color};
 use figcraft_geom::Point;
 use serde_json::{Value, json};
 
@@ -50,7 +48,7 @@ fn a_board_is_a_kind_of_file_that_saves_and_reopens() {
     let s = board();
     let doc = s.doc().unwrap();
     assert_eq!(doc.kind, FileKind::Board);
-    assert!(matches!(doc.node(doc.pages[0]).unwrap().kind, NodeKind::Page { background, .. } if background == BOARD_PAGE));
+    assert!(matches!(doc.node(doc.pages[0]).unwrap().kind, NodeKind::Page { background, .. } if background == figcraft_color::Color::DEFAULT_PAGE));
     let (back, _) = figcraft_format::from_json(&figcraft_format::to_json(doc).unwrap().to_string()).unwrap();
     assert_eq!(back.kind, FileKind::Board);
     // Files from before boards (no kind) are design files, and design files don't write one.

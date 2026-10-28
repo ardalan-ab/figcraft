@@ -26,7 +26,7 @@ all end with the same geometry.
 
 | Feature | Status | Notes |
 |---|---|---|
-| Board files: File ▸ New board, the home screen's New board card, a light page | done | `file.newBoard`; the kind shows in `inspect_document`, tabs and file rows (a note mark; design files a pen nib) |
+| Board files: File ▸ New board, the home screen's New board card, a page matching the current theme | done | `file.newBoard`; the kind shows in `inspect_document`, tabs and file rows (a note mark; design files a pen nib) |
 | Board toolbar at the bottom | done | Move/Hand, Marker/Highlighter/Eraser, Sticky (colour flyout), Shapes (flyout), Connector, Text, Section, Stamp (flyout), Comment, Resources, Actions, the Design panel's button |
 | Design panel hidden by default; a contextual bar above the selection | done | colour, shape, text size (S/M/L/XL), connector straight/elbow/curved and its arrow; the Design panel opens with its button or View ▸ Design panel |
 | Prototyping and Dev Mode refuse on boards | done | `proto.*`, `dev.*`, `view.prototype`, `view.devMode` say why |

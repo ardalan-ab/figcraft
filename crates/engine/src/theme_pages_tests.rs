@@ -56,6 +56,18 @@ fn new_files_take_the_theme_they_are_made_in_and_added_pages_follow() {
 }
 
 #[test]
+fn new_boards_take_the_theme_they_are_made_in() {
+    for (dark, want) in [(None, "#F5F5F5"), (Some(false), "#F5F5F5"), (Some(true), "#1E1E1E")] {
+        let mut s = Session::empty();
+        if let Some(d) = dark {
+            s.set_ui_dark(d);
+        }
+        ex(&mut s, "file.newBoard", json!({}));
+        assert_eq!(backgrounds(&s), [want], "theme {dark:?}");
+    }
+}
+
+#[test]
 fn a_change_of_theme_leaves_existing_pages_alone() {
     let mut s = Session::empty();
     s.set_ui_dark(true);
